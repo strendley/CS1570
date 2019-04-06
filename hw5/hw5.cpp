@@ -1,0 +1,151 @@
+//Programmer: Skylar Trendley     Date: 2/22/2017
+//File: HW5.cpp
+//Professor: Clayton Price
+//Description: Function Driven Pants Fitting Machine
+
+#include <iostream>
+using namespace std;
+
+//Global Constants
+const double WAIST_INSEAM_RATIO = 0.9;
+const int MIN_MEASUREMENT = 1; //no one is a size 0
+const char AFFIRMATIVE = 'y';
+const char NEGATIVE = 'n';
+
+//Function Prototypes
+
+//the greeting() outputs a message to the screen and prompts user
+//               for their name
+//Pre: None
+//Post: message output to the screen & name is returned
+string greeting();
+
+//the getMeasurements() prompts user for leg, waist and hwt measurements
+//Pre: none
+//Post: prompt for and return non-negative leg, waist, and hwt measurements
+int getMeasurements(const string prompt);
+
+//the calcInSeam() calculates the pants inSeam 
+//Pre: waist must be positive
+//Post: inSeam is calculated
+float calcInSeam(const int waist);
+
+//the retHwt() calculates the high water value and determines
+// if the pants are too long or an acceptable length
+//Pre: leg, hwt, and inSeam must be positive
+//Post: high water value is calculated
+bool retHwt(const int leg, const int hwt, const float inSeam);
+
+//the approvePants() outputs a message to the screen
+//Pre: goodPants must be true or false
+//Post: message output to the screen
+void approvePants(const bool goodPants);
+
+//the signoff() outputs a message to the screen
+//Pre: name must have a value
+//Post: message output to the screen
+void signoff(const string name);
+
+int main()
+{
+  //Variable Declaration
+  float inSeamMeasure;
+  int waistMeasure;
+  int legMeasure;
+  int hwtMeasure;
+  char option;
+  string greetName;
+  bool quit = false;
+  bool isGoodPants;
+
+  greetName = greeting();
+  do
+   {
+     cout << "Would you like to test a pair of high-waters? (y/n): ";
+     cin >> option;
+
+     if (option == AFFIRMATIVE)
+      {
+        waistMeasure = getMeasurements("Enter your waist measure (in mm): ");
+	legMeasure = getMeasurements("Enter your leg measure (in mm): ");
+	hwtMeasure = getMeasurements("Enter your high water tolerance: ");
+	inSeamMeasure = calcInSeam(waistMeasure);
+	isGoodPants = retHwt(legMeasure, hwtMeasure, inSeamMeasure);
+	approvePants(isGoodPants);
+      } 
+
+     else if (option == NEGATIVE)
+       quit = true;
+
+     else
+       cout << endl << "Sorry, we didn't understand that." << endl;
+
+    } while (!quit);
+
+  signoff(greetName);
+
+  return 0;
+}
+
+string greeting()
+{
+  string name;
+
+  cout << "Hello, and Welcome to The Pants Store!" << endl << endl;
+  cout << "Please enter your name: ";
+  cin >> name;
+
+  return name;
+}
+
+int getMeasurements(const string prompt)
+{
+  int measurement;
+
+  do
+   {
+     cout << prompt;
+     cin >> measurement;
+   } while (measurement < MIN_MEASUREMENT);
+
+  return measurement;
+}
+
+float calcInSeam(const int waist)
+{
+  float inSeam;
+
+  inSeam = waist * WAIST_INSEAM_RATIO;
+
+  return inSeam;
+}
+
+bool retHwt(const int leg, const int hwt, const float inSeam)
+{
+  float HWValue;
+  bool goodPants;
+
+  HWValue = leg - inSeam;
+
+  if (HWValue >= hwt)
+    goodPants = true;
+
+  else
+    goodPants = false;
+
+  return goodPants;
+}
+
+void approvePants(const bool goodPants)
+{
+  if (goodPants)
+    cout << endl << "Great pair of high-waters!" << endl << endl;
+  else
+    cout << endl << "Pfft! Pants are too long!" << endl << endl;
+}
+
+void signoff(const string name)
+{
+  cout << endl;
+  cout << "Goodbye, " << name << ", thank you for your patronage!" << endl;
+}

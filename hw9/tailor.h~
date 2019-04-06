@@ -1,0 +1,27 @@
+//Programmer: Skylar Trendley  Date: 4/13/17
+//Instructor: Clayton Price
+//Section: CS1570A
+//Description: This program builds a design for a town using classes.
+
+#include "header.h"
+#include "town.h"
+
+class tailor
+{
+  private:
+    string name;
+    double funds;
+    char symbol;
+    bool isAlive;
+    short x_coord;
+    short y_coord;
+  
+  public:
+    tailor(string name, char symbol = DEFAULT_SYMBOL): name(name),
+    funds(DEFAULT_MONEY), symbol(symbol), isAlive(true){} //constructor
+    void placeMe(town &t);
+    void placeMiddle(town &t);
+    void randWalk(town &t);
+    void printTailor();
+  
+};

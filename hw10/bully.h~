@@ -1,0 +1,31 @@
+
+/*
+Programmer:  GEORGE C WARD
+Instructor:  CLAYTON PRICE
+Date:        19Apr2017
+Section:     A
+Description: Class tailor for the highwater program
+*/
+#ifndef   BULLY_H
+#define   BULLY_H
+#include  "tailor.h"
+#include  "town.h"
+#include  <iostream>
+#include  <cstdlib>
+#include  <ctime>
+using namespace std;
+
+
+class bully
+{
+  public:
+//    bully (fstream& fin);
+    void   punch(tailor& t);
+
+  private:
+    string m_bullyName;
+    short  m_punchPower;
+    short  m_probPunch;
+};
+
+#endif

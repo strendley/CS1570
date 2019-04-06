@@ -1,0 +1,75 @@
+//Programmer: Skylar Trendley   Date: 1-25-17
+//Instructor: Clayton Price
+//Section: 1A
+//Description: Algorithms
+
+//Algorithm for Dropping Eggs
+1. Determine the minimum and maximum floors.
+   - Minimum floors will be 1. (Default)
+   - Maximum floors will be 99. (Default)
+2. Climb to floor 50. Drop egg #1 from the balcony of floor 50.
+3. Based on the results from the (previous--if applicable) drop, adjust the
+   potential minimum and maximum floors.
+   A. If the egg broke in the (previous--if applicable) attempt, set new max
+      to the current floor level.
+   B. If the egg did not break in the (previous--if applicable) attempt, set
+      the new minimum to the current floor.
+4. Determine the new test floor based on the results from step 3--Add the
+maximum floor to the minimum floor, then divide the sum by 2.
+5. Climb to the new floor determined in step #4. Drop the next egg.
+6. Repeat steps #3, #4, and #5 until all eggs are used or until the min is
+   greater than or equal to the maximum.
+
+//Algorithm for OT Pay and Working Status
+1. Prompt user for information:
+   A. Start Date   
+   B. OT Hours (OTHrs)
+   C. Sick Days Week1 (wk1)
+   D. Sick Days Week2 (wk2)
+   E. Sick Days Week3 (wk3)
+   F. Sick Days Week4 (wk4)
+   G. Base Pay (base)
+2. Calculate Sick Days
+   A. If the sick days in week 1 or week 3 are greater than 0, then sick days in
+      week 1 and 3 will be added together, then multiplied by 8 hours for each 
+      sick day taken. Subtract these hours from OT Hours.
+   B. If the sick days in week 2 are greater than 1, then sick days in week
+      2 will be subtracted by 1 (for the free sick day) and them multiplied by 8
+      hours for each sick day taken. Subtract these hours from OT Hours.
+   C. Repeat step 2B for week 4, using week 4's input.
+3. Determine Status
+   A. Add sick days from week 1, 2, 3, and 4 together.
+   B. If the total sick days is greater than 1 or the OT Hours are less
+than 40, the status will be "working" but the bonus will be 0 dollars.
+   C. If the total sick days is equal to 1 and the OT Hours are greater than
+      or equal to 40, the status will be "working". Calculate the bonus by
+       multiplying the base pay by 30.
+   D. If the total sick days are less than 1 and the OT Hours are greater
+      than or equal to 80, the status will be "terminated" and the bonus will be
+      0 dollars.
+4. Calculate OT Pay
+   A. If Status = terminated, OT Pay = 5 dollars.
+   B. If Status = working and OT Hours are <= 30, OT Pay = ((base * 1.5) * OTHrs)
+      + the bonus.
+   C. If Status = working and OT Hours are > 30, OT Pay  = ((base * 2.0) *  OTHrs)
+      + the bonus.
+5. Output OT Pay & Status
+
+//Algorithm for Lexicographic Difference
+1. Prompt user for input.
+   A. Word 1 
+   B. Word 2
+2. Compare characters
+   A. If char1 = char2, loop to next characters
+   B. If there are no characters left to compare, lexdif = 0
+   C. If char1 > char2, lexdif = char1 - char2
+   D. If char1 < char2, lexdif = char2 - char1
+3. Output Lexdif
+
+
+
+ 
+
+
+
+

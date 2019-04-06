@@ -1,0 +1,136 @@
+//Programmer: Skylar Trendley      Date: 3/5/17
+//Instructor: Clayton Price
+//File: calc.h
+//Section: CS1570A
+//Description: Menu Driven Function Based Calculator
+#include <iostream>
+using namespace std;
+
+#ifndef CALC_H
+#define CALC_H
+
+//Global Constants
+const int INITIALIZE_I = 1;
+const int INITIALIZE_J = 1;
+const int ITERATE_CONVERGENCE = 10;
+const int MIN_PROMPT = 0;
+const int MAX_EXPONENTIATE = 8;
+const int MAX_FACTORIAL = 10;
+const int MAX_K = 5;
+const int MAX_ROOT = 5;
+const int OPTION_FACT = 1;
+const int OPTION_EXP = 2;
+const int SINE_ACC = 8;
+const int COSINE_ACC = 6;
+const int OPTION_SINX = 3;
+const int OPTION_ROOT = 4;
+const int OPTION_SQRT = 2;
+const int OPTION_CUBERT = 3;
+const int OPTION_FOURTHRT = 4;
+const int OPTION_COSH_X = 5;
+const int OPTION_QUIT = 6;
+const int OPTION_RUDE = 7;
+const int SNARKY_CHANCE = 25;
+const int CHANGE_INPUT_CHANCE = 35;
+
+//Function Prototypes
+
+//Description: The getFactInput() prompts the user for a value.
+//Pre: must be between MIN_PROMPT and MAX_FACTORIAL.
+//Post: value is returned.
+double getFactInput();
+
+//Description: The factorial() calculates the factorial of value.
+//Pre: none.
+//Post: factorial is calculated and returned.
+double factorial(const double numFacts);
+
+//Description: The getExpInput() prompts the user for a value.
+//Pre: must be between MIN_PROMPT and MAX_EXPONENTIATE.
+//Post: value is returned.
+double getExpInput();
+
+//Description: The exponent() calculates the exponent of value.
+//Pre: none.
+//Post: exponent is calculated and returned.
+double exponent(const double exp_x, const double numTerms);
+
+//Description: The exponentiate() calculates the exponentiate of value
+//Pre: none.
+//Post: exponentiate is calculated and returned.
+double exponentiate(const double exp);
+
+//Description: The getXInput() prompts the user for a value.
+//Pre: value must be positive.
+//Post: value is returned.
+double  getXInput();
+
+//Description: The sine() calculates the sine of a value.
+//Pre: none.
+//Post: sine of x is calculated and returned.
+double sine(const double x);
+
+//Description: The rootOption() prompts the user for root options.
+//Pre: value must be between MIN_PROMPT and MAX_ROOT.
+//Post: root option is returned.
+double rootOption();
+
+//Description: The getRoot() calls function based on root option.
+//Pre: none.
+//Post: function is called based on root option.
+void getRoot(const double x, const double n);
+
+//Description: The SqRt() calculates the square root of value and 
+//             outputs result.
+//Pre: none.
+//Post: square root is calculated and value is output to screen.
+void sqRt(const double x);
+
+//Description: The cubeRt() calculates the cube root of value 
+//             and outputs result.
+//Pre: none.
+//Post: cube root is calculated and value is output to screen.
+void cubeRt(const double x);
+
+//Description: The fourthRt() calculates the fourth root of value 
+//             and outputs result.
+//Pre: none.
+//Post: fourth root is calculated and value is output to screen.
+void fourthRt(const double x);
+
+//Description: The fifthRt() calculates the fifth root of value
+//              and outputs result.
+//Pre: none.
+//Post: fifth root is calculated and value is output to screen.
+void fifthRt(const double x);
+
+//Description: The cosh() calculates the hyperbolic cosine of a value.
+//Pre: none.
+//Post: hyperbolic cosine is returned.
+double cosh(const double x);
+
+//Description: The snarkyRoll() will generate a random number to 
+//             determine whether or not to change the value of 
+//             option to ensue a snarky comment.
+//Pre: none
+//Post: random number is generated and option is returned
+int snarkyRoll(int &opt);
+
+//Description: The changeX() will generate a random number to determine 
+//             whether or not to change the user's inputted value of x.
+//Pre: none
+//Post: random number is generated and x is returned.
+int changeX(double &x);
+
+//Description: The randComment() will generate a random number to determine
+//             which snarky comment will be output to the screen.
+//Pre: none
+//Post: random number is generated and value is returned.
+int randComment();
+
+//Description: The rudeFunction() outputs a message to the screen.
+//Pre: none.
+//Post: message is output to the screen.
+void rudeFunction(const int val);
+
+#endif
